@@ -1,42 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace FileReadingEvenNumbersSearch
 {
-    class Program
+    internal class Program
     {
-        static byte[] array;
+        private static byte[] array;
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Console.WriteLine("Введите название файла");
             string File_name = Console.ReadLine();
             array = new byte[100];
             int ReadCount = 1;
-            int i = 0;
-            int n = 0;
-            string text = string.Empty;
-            using (FileStream fstream = File.OpenRead(@"numbers.txt"))
+            string text = string.Empty; // = ""  
+            Console.WriteLine(text.Length);
             {
-                for (int i = 0; i < text.Length; i++)
+                using (FileStream reader = File.OpenRead(@"numbers.txt"))
                 {
-                    if (text[i] == ',')
-                    while (i < n)
+                    ReadCount = reader.Read(array, 0, array.Length);
+                    text += Encoding.Default.GetString(array);
                     {
-                        if (i % 2 != 0)
+                        Console.WriteLine("Текст из файла: {0}", text);
                         {
-                         ReadCount = fstream.Read(array, 0, array.Length);
-                         text += Encoding.Default.GetString(array);
+                            int[] n;
+                            foreach (int i in n)
+                            {
+                                if (i % 2 == 0)
+                                {
+                                sw.WriteLine(i);
+                                }
+                                while (line = string.ReadLine())
+                                {
+                                    ;
+                                }
+                                Console.WriteLine("- Сумма всех четных чисел");
+                                Console.ReadKey();
+                            }
                         }
                     }
                 }
-                Console.WriteLine("Текст из файла: {0}", i);
-                ++i;
-                Console.ReadLine();
             }
         }
     }

@@ -26,6 +26,8 @@ namespace EvenNumbersSearch
                 }
 
                 ++i;
+                Console.ReadKey();
+
             }
         }
     }
