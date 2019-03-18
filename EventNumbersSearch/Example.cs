@@ -15,15 +15,15 @@ namespace EvenNumbersSearch
 
         static void ExampleFunc()
         {
-            Console.Write("Введите число =");
-            int n = int.Parse(Console.ReadLine());
+            Write("Введите число =");
+            int n = int.Parse(ReadLine());
             int i = 1;
             int summ  = SomeFunctions.Sum(4, 10);
             while (i <= n)
             {
                 if (i % 2 != 0)
                 {
-                    Console.Write("{0} ", i);
+                    Write("{0} ", i);
                 }
 
                 ++i;

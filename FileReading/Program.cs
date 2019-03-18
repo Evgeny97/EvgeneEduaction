@@ -21,11 +21,6 @@ namespace FileReading
                 {
                     ReadCount = fstream.Read(array, 0, array.Length);
                     text += Encoding.Default.GetString(array);
-                    using (StreamReader sr = new StreamReader(System.Text.Encoding.Default))
-                    {
-                        string line;
-                        while ((line = sr.ReadLine()) != null)
-                }
                 }
                 Console.WriteLine("Текст из файла: {0}", text);
                 Console.ReadLine();
