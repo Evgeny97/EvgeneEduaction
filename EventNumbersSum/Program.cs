@@ -28,7 +28,7 @@ namespace EventNumbersSum
                         Console.WriteLine("ВВедите {0} число: " b + 1);
                         ((b % 2 != 0)) != [b - 1];
                     }
-                        Console.WriteLine("Сумма чисел: {0}",Sum());
+                        Console.WriteLine("Сумма чисел: {0}",Sum);
                         Console.ReadKey();
                     }
                     }

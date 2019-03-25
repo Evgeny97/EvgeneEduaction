@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace FileReading
@@ -15,43 +16,77 @@ namespace FileReading
             Console.WriteLine("Введите название файла");
             string File_name = Console.ReadLine();
             array = new byte[100];
-                int ReadCount = 1;
-            string text = string.Empty; // = ""  
-            using (FileStream fstream = File.OpenRead(@"numbers.txt"))
+            //  for (int n = 0; n < array.Length; n++) // сортировка
             {
-                while (ReadCount != 0)
-                ReadCount = fstream.Read(array, 0, array.Length);
-                    text += Encoding.Default.GetString(array);
-                array = new byte[fstream.Length]; ////считываем файл
-                fstream.Read(array, 0, array.Length);
-                string textFromFile = Encoding.Default.GetString(array); // декодируем строку в байты
-                Console.WriteLine("Текст из файла: {0}", textFromFile);
+                // Console.Write("{0}-е число: ", n + 1);
+                //   array[n] = Int32.Parse(Console.ReadLine());//
+                string text = string.Empty;//--
+                using (FileStream fstream = File.OpenRead(@"numbers.txt"))
+                {
+                    int ReadCount = 0;
+                    do
+                    {
+                        ReadCount = fstream.Read(array, 0, array.Length);
+                        if(ReadCount < array.Length)
+                        {
+                            byte[] endBytes = new byte[ReadCount];
+                            for (int i = 0; i < ReadCount; i++)
+                                endBytes[i] = array[i];
+                            text += Encoding.Default.GetString(endBytes);
+                        }
+                        else
+                            text += Encoding.Default.GetString(array);
+                    } while (ReadCount != 0);
+                }
+                Console.WriteLine("Текст из файла: {0}", text);
                 string[] separatingChars = { "," };
-                System.Console.WriteLine("Original text: '{0}'", text);
                 string[] numbers = text.Split(separatingChars, StringSplitOptions.RemoveEmptyEntries);
-                System.Console.WriteLine("{0} substrings in text:", numbers.Length);
+                //  Console.WriteLine("{0} substrings in text:", numbers.Length);
+                //сортировка
+                // int temp;//
+                //   for (int n = 0; n < array.Length - 1; n++)
+                // {
+                //  for (int j = n + 1; j < array.Length; j++)
+                //   {
+                //   if (array[n] > array[j])
+                //  {
+                //      temp = array[n];
+                //     array[n] = array[j];
+                //     array[n] = temp;
+                //      for (int n = 0; n < array.Length; n++)
+                //         Console.WriteLine(array[n]);//
                 foreach (string number in numbers)
                 {
-                    if (int.TryParse(number, out int intNum) && intNum % 2 == 0)
+                    if (int.TryParse(number, out int intNum) && intNum % 2 == 1)
                     {
-                        //sum
-                            Console.WriteLine("Сумма всех четных чисел: {0}");
+                        int summa = 0;
+                        for (int i = 0; i < numbers.Length; i++)
+                        {
+                            summa += intNum;
                         }
-                   
-                }
-                Console.ReadKey();
-            }
+                        Console.WriteLine("\n Сумма всех четных чисел: {0}", summa);
 
+                    }
+
+                }
+                Console.ReadLine();                
+            }
         }
     }
 }
 
 
 
+
+
 //int n = 0, sum = 0;
-//for (int i = 0; i<array.Length; i++)
 //{
 //n = Convert.ToInt32(array[i]);
 //if (n % 2 == 0)
 //sum += n;
-                      //for (int i = 0; i<numbers.Length; i++)
+//for (int i = 0; i<numbers.Length; i++)
+
+//while (ReadCount != 0)
+//{
+//ReadCount = fstream.Read(array, 0, array.Length);
+//text += Encoding.Default.GetString(array);

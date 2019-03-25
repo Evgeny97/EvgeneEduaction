@@ -15,7 +15,7 @@ namespace FileReading
             array = new byte[100];
             int ReadCount = 1;
             string text = string.Empty; // = ""  
-            using (FileStream fstream = File.OpenRead(@"data.txt"))
+            using (FileStream fstream = File.OpenRead(@"\\numbers.txt"))
             {
                 while (ReadCount != 0)
                 {
