@@ -12,26 +12,46 @@ namespace ODD_Car
         public float volume;  // объем двигателя
         public speed // текущая скорость
         public int luggage;   // объем багажного отделения
-        public int load;        //текущвя нагрузка
+        public int massa;        //текущвя нагрузка
         public bool ignition = true;     //наличие зажигание
     }
-    public Car(string newMark, string newVolume, int newSpeed, int newLuggage,
-    int newLoad, double newIgnition)
+    public Car(string newMark, string newVolume, int newSpeed, int newLuggage, // конструктор
+    int newMassa, double newIgnition)
     {
         mark = newMark;
         volume = newVolume;
         speed = newSpeed;
         luggage = newLuggage;
-        load = newLoad;
+        massa = newMassa;
         ignition = newIgnition;
     }
-        Cars c = new Cars("volvo", 3.2, 260, 200, 2400, true);
-        class Program
+    Cars Volvo = new Cars("volvo", 3.2, 260, 200, 2400, true);
+    class Program
     {
-        static void Main(string[] args);
-
+        public static void Main(string[] args);
+        {
+        Console.Write("Введите массу автомобиля - ");
+            Volvo.massa = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Масса автомобиля - {0}тонн(ы)", Volvo.massa);
             }
+    Console.Write("Введите марку автомобиля - ");
+            Volvo.mark = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Марка автомобиля - {0} км", Volvo.mark);
+
+            Console.Write("Введите максимальную скорость автомобиля - ");
+            Volvo.speed = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Максимальная скорость - {0} км/ч", Volvo.speed);
+
+            Console.ReadKey();
+        }
 }
+
+
+
+
+
+
+
 
                   // марка
                   // объем двигателя
