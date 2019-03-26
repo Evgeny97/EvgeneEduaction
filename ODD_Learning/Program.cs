@@ -8,7 +8,7 @@ namespace ODD_Learning
 {
     class Program
     {
-        
+
         struct RectangleStruct
         {
             public int Width;

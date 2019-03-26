@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileTransfer", "FileTransfe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODD_Learning", "ODD_Learning\ODD_Learning.csproj", "{1669B021-4BAE-4B3F-B049-0F177C555956}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODD_Car", "ODD_test\ODD_Car.csproj", "{8C623F60-8138-4FD9-8920-B89E639A39F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{1669B021-4BAE-4B3F-B049-0F177C555956}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1669B021-4BAE-4B3F-B049-0F177C555956}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1669B021-4BAE-4B3F-B049-0F177C555956}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C623F60-8138-4FD9-8920-B89E639A39F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C623F60-8138-4FD9-8920-B89E639A39F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C623F60-8138-4FD9-8920-B89E639A39F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C623F60-8138-4FD9-8920-B89E639A39F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
