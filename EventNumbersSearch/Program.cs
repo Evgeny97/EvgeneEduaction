@@ -22,7 +22,11 @@ namespace EvenNumbersSearch
             {
                 if (i % 2 != 0)
                 {
-                    Console.Write("{0} ", i);
+                    Console.Write("{четное} ", i);
+                }
+                if (i % 2 != 1)
+                {
+                    Console.Write("{нечетное ", i)
                 }
 
                 ++i;
