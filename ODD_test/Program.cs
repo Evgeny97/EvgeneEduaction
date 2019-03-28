@@ -47,27 +47,27 @@ namespace ODD_Car
                     CurrentLoad = currentLoad;
                     }
                     public void getValues() {
-                    Console.WriteLine("car Marka is: " + marka + ", car Speed is: " + speed + ", car LuggageSpace is: " + luggageSpace + ", car CurrentLoad is: " + currentLoad + ");
-                        }
-                public Car(string marka, string engineCapacity, string speed, string luggageSpace, string currentLoad);
-                    Marka = marka
-                    EngineCapacity = engineCapacity
-                    Speed = speed
-                    LuggageSpace = luggageSpace
-                    CurrentLoad = currentLoad
+                    Console.WriteLine("car Marka is: " + marka + ", car Speed is: " + speed + ", car LuggageSpace is: " + luggageSpace + ", car CurrentLoad is: " + currentLoad +);
+                    { 
+                    public Car(string marka, string engineCapacity, string speed, string luggageSpace, string currentLoad);
+                        Marka = marka;
+                    EngineCapacity = engineCapacity;
+                        Speed = speed;
+                        LuggageSpace = luggageSpace;
+                        CurrentLoad = currentLoad;
                     public car () { }
-                }
+                    }
                 public void StartEngine()//
                 {
                     PresenceOfIgnition = true;
                     Console.WriteLine("Двигатель запущен");
                 }
-                public void StopEngine()//
+                public void StopEngine() //
                 {
                 PresenceOfIgnition = false;
                 Console.WriteLine("Двигатель выключин");
                 }
-                public int MaxSpeed // скорость
+                public int MaxSpeed  // скорость
                 {
                     get { return MaxSpeed; }
                     set { if (value > 0) MaxSpeed = value; }
