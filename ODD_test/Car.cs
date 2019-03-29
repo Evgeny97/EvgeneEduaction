@@ -75,10 +75,15 @@ namespace ODD_Car
                 get { return EngineCapacity; }
                 set { if (value > 0) EngineCapacity = value; }
             }
-            public int luggageSpace // обьем 
+            public int luggageSpace // обьем багажного отделение
             {
                 get { return luggageSpace; }
                 set { if (value > 0) luggageSpace = value; }
+            }
+            public int currentLoad //текущая нагрузка 
+            {
+                get { return currentLoad; }
+                set { if (value > 0) currentLoad; }
             }
             public void StartEngine()//
             {
