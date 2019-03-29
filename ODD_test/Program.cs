@@ -20,7 +20,7 @@ namespace ODD_test
                 car.SpeedUP();
                 car.SlowDown();
 
-                //     Lorry.Info();
+                Lorry.Info();
                 PassengerCar cars = new PassengerCar();
                 //     Console.WriteLine();
 

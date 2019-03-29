@@ -28,6 +28,12 @@ namespace OOD_Cars_1_
     }
 
         class MainClass
+        {
+            public MainClass()
+            {
+            }
+        }
+
         public static void Main(string[] args)
             car audi = new car();
             Console.WriteLine();

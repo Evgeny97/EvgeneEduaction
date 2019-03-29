@@ -10,7 +10,7 @@ namespace ODD_Car
 
     namespace Car
     {
-        class Car
+        public class Car
         {
             enum Models { Offroad, Truck, PassengerCar }
             /// <summary>
@@ -37,7 +37,7 @@ namespace ODD_Car
             /// наличие зажигание 
             /// </summary>
             protected bool PresenceOfIgnition; //наличие зажигание 
-            public void setValues(string Marka, float EngineCapacity, int Speed, int LuggageSpace, int CurrentLoad, bool PresenceOfIgnition)
+            public void SetValues(string Marka, float EngineCapacity, int Speed, int LuggageSpace, int CurrentLoad, bool PresenceOfIgnition)
             {
                 this.Marka = Marka;
                 this.EngineCapacity = EngineCapacity;
@@ -46,7 +46,7 @@ namespace ODD_Car
                 this.CurrentLoad = CurrentLoad;
             }
 
-            public void getValues()
+            public void GetValues()
             {
                 Console.WriteLine("car Marka is: " + Marka + ", car Speed is: " + Speed + ", car LuggageSpace is: " + LuggageSpace + ", car CurrentLoad is: " + CurrentLoad);
             }
@@ -63,6 +63,17 @@ namespace ODD_Car
             public Car()
             {
 
+            }
+
+            public string Mark
+            {
+                get { return Marka; }
+                set { Marka = value; }
+            }
+            public int EngineCapacity // обьем двигателя 
+            {
+                get { return EngineCapacity; }
+                set { if (value > 0) EngineCapacity = value; }
             }
             public int luggageSpace // обьем 
             {
@@ -87,7 +98,6 @@ namespace ODD_Car
                 set { if (value > 0) MaxSpeed = value; }
 
             }
-
             public void Start()
             {
                 Console.WriteLine("Машина {0} {0} Завести двигатель", Marka);
@@ -107,27 +117,29 @@ namespace ODD_Car
             {
                 Console.WriteLine("Машина {0} {0} Замедлиться", Marka);
             }
-            
-         //   static void Main(string[] args)
-          //  {
-         //       Car car = new Car("volvo", "3.2", "0", 200, "1170");
-       //         Console.WriteLine(car.PresenceOfIgnition);
-                //car.Stop();
-          //      car.SpeedUP();
-         //       car.SlowDown();
-          //      Console.ReadLine();
+
+
+            static void Main(string[] args)
+            {
+                //            Car car = new Car("volvo", "3.2", "0", 200, "1170");
+                //             Console.WriteLine(car.PresenceOfIgnition);
+                //          car.Stop();
+                //         car.SpeedUP();
+                //         car.SlowDown();
+                //         Console.ReadLine();
             }
         }
-            //         Car trucks = new Car("trucks", "3.2");
+        //         Car trucks = new Car("trucks", "3.2");
 
 
 
-     //   class trucks : Car
-       //     public trucks(string marka, string engineCapacity, string speed, int luggageSpace, string currentLoad) 
-           //     : base(marka,engineCapacity, speed, luggageSpace, currentLoad)
-                //trucks man = new trucks("man", "2.0", "0", "2000", "3240");
-                //Console.WriteLine();
-            }
+        //   class trucks : Car
+        //     public trucks(string marka, string engineCapacity, string speed, int luggageSpace, string currentLoad) 
+        //     : base(marka,engineCapacity, speed, luggageSpace, currentLoad)
+        //trucks man = new trucks("man", "2.0", "0", "2000", "3240");
+        //Console.WriteLine();
+    }
+}
 
 
 // объем двигателя
