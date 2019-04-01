@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ODD_Car.Car;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,20 +7,33 @@ using System.Threading.Tasks;
 
 namespace ODD_test
 {
-    class Trucks
+    class Trucks : Car
     {
-        class Trucks : Program
+        public Trucks(string marka, float engineCapacity, int current_Speed, int maxspeed, int luggageSpace, int currentLoad, bool presenceOfIgnition) 
+            : base(marka, engineCapacity, current_Speed, maxspeed, luggageSpace, currentLoad, presenceOfIgnition)
+        { }
+
+        public Trucks()
         {
-            public Trucks(string marka, string engineCapacity, string speed, int luggageSpace, string currentLoad) : base(marka, engineCapacity, speed, luggageSpace, currentLoad)
-            {
-
-            }
-
-            Trucks Lorry = new Trucks();
-            
-            public void debag()
-            {
-            }
         }
+
+        public string marka = "man";
+        public new double engineCapacity = 3.6;
+        public new int current_Speed;
+        public new int maxspeed = 150;
+        public new int luggageSpace = 400;
+        public int currentLoad;
+        public new bool PresenceOfIgnition;
+        public new int Luggagespace
+        {
+            get { return luggageSpace; }
+            set { if (value > 50) luggageSpace = currentLoad; }
+        }
+        //      public new bool PresenceOfIgnition;
+        //   public new double MaxSpeed
+        //    {
+        //       get { return maxspeed; }
+        //      set { MaxSpeed = value * engineCapacity; }
+        //   }
     }
 }
