@@ -16,24 +16,21 @@ namespace ODD_test
         public Trucks()
         {
         }
-
         public string marka = "man";
         public new double engineCapacity = 3.6;
-        public new int current_Speed;
-        public new int maxspeed = 150;
+        public int current_Speed = 100;
+        public new int Maxspeed = 150;
         public new int luggageSpace = 400;
-        public int currentLoad;
+        public int currentLoad = 50;
         public new bool PresenceOfIgnition;
-        public new int Luggagespace
-        {
-            get { return luggageSpace; }
-            set { if (value > 50) luggageSpace = currentLoad; }
-        }
-        //      public new bool PresenceOfIgnition;
-        //   public new double MaxSpeed
-        //    {
-        //       get { return maxspeed; }
-        //      set { MaxSpeed = value * engineCapacity; }
-        //   }
+        public new bool Try_Download_Item_To_Luggage;
+        public new string Download_luggage_space;
+
+
+        public new double MaxSpeed
+            {
+             get { return base.Maxspeed; }
+             set { MaxSpeed = value * engineCapacity; }
+           }
     }
 }

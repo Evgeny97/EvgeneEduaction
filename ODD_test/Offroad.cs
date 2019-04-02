@@ -17,14 +17,15 @@ namespace ODD_test
         public Offroad()
         {
         }
-
         public string marka = "Jeep";
-        public new int current_Speed ;
+        public int current_Speed = 30;
         public new double engineCapacity = 2.4;
-        public int Maxspeed = 290;
+        public new int Maxspeed = 290;
         public new int luggageSpace = 150;
-        public int currentLoad;
+        public int currentLoad = 30;
         public new bool PresenceOfIgnition;
+        public new bool Try_Download_Item_To_Luggage;
+        public new string Download_luggage_space;
 
         public new double MaxSpeed
         {
@@ -36,9 +37,6 @@ namespace ODD_test
             get { return current_Speed; }
             set { if (value > 0) Maxspeed = value; }
         }
-    //    public int currentLOad
-   //     {
-    //        get { return currentLoad;  }
-    //        set { if (value > 0) currentLoad = value; }
+
         }
     }

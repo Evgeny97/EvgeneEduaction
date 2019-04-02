@@ -14,34 +14,35 @@
             /// <summary>
             /// объем двигателя
             /// </summary>
-            private double EngineCapacity;// объем двигателя
+            private double EngineCapacity;
             /// <summary>
             /// текущая скорость
             /// </summary>
-            public int Current_Speed; /// текущая скорость
-                                      /// <summary>
-                                      /// максимальная скорость
-                                      /// </summary>
-            protected int MaxSpeed;//максимальная скорость
+            public int Current_Speed;
+            /// <summary>
+            /// максимальная скорость
+            /// </summary>
+            protected int MaxSpeed;
             /// <summary>
             /// объем багажного отделения
             /// </summary>
-            private int LuggageSpace;// объем багажного отделения
+            private int LuggageSpace;
             /// <summary>
             /// текущая нагрузка
             /// </summary>
-            private int CurrentLoad;//текущая нагрузка
+            private int CurrentLoad;
             /// <summary>
             /// наличие зажигание 
             /// </summary>
-            protected bool PresenceOfIgnition; //наличие зажигание 
+            protected bool PresenceOfIgnition;
+
             public void SetValues(string Marka, float EngineCapacity, int Current_Speed, int MaxSpeed, int LuggageSpace, int CurrentLoad, bool PresenceOfIgnition)
             {
                 this.Marka = Marka;
                 this.EngineCapacity = EngineCapacity;
                 this.Current_Speed = Current_Speed;
                 this.MaxSpeed = MaxSpeed;
-                this.luggageSpace = LuggageSpace;
+                this.LuggageSpace = LuggageSpace;
                 this.CurrentLoad = CurrentLoad;
                 this.PresenceOfIgnition = PresenceOfIgnition;
             }
@@ -50,7 +51,7 @@
                 Console.WriteLine("car Marka is: " + Marka + ", car EngineCapacity is: " + EngineCapacity + ", car Current_Speed is: " + Current_Speed + ",car MaxSpeed is: " + MaxSpeed + ", car LuggageSpace is: " + luggageSpace + ", car CurrentLoad is: " + CurrentLoad + ", car PresenceOfIgnition is: " + PresenceOfIgnition);
             }
 
-            public Car(string marka, float engineCapacity, int Current_Speed, int maxspeed, int luggageSpace, int currentLoad, bool PresenceOfIgnition)
+            public Car(string marka, float engineCapacity, int current_speed, int maxspeed, int luggageSpace, int currentLoad, bool PresenceOfIgnition)
             {
 
             }
@@ -75,59 +76,53 @@
                 get { return luggageSpace; }
                 set { if (value > 0) luggageSpace = value; }
             }
-
-            public void current_Speed()
+            public int Maxspeed  // максимальная скорость
             {
-                Current_Speed = 0;
+                get { return MaxSpeed; }
+                set { if (value > 0) MaxSpeed = value; }
             }
-            //         public void Currentload()
-            //          {
-            //             Currentload = 0;
-            //          }
-            public void StartEngine()//
+
+            public void StartEngine()//Запустить двигатель
             {
                 PresenceOfIgnition = true;
                 Console.WriteLine("Двигатель запущен");
             }
-            public int StopEngine //заглушить двигатель
+            public void StopEngine() // Заглушить двигатель
             {
-                get { return Current_Speed; }
-                set { if (value > 0) PresenceOfIgnition = false; }
+                    Current_Speed = Current_Speed - 0;
+                    PresenceOfIgnition = false;
+                Console.WriteLine("Заглушить двигатель");
             }
-            public int SpeedUP // Ускориться
+            public void SpeedUP() //Ускориться
             {
-               if (Current_Speed <= 10)
-                PresenceOfIgnition
-        }
-            //public int SlowDown // Замедлиться
-            //{
-            //    get { return Current_Speed; }
-            //    set { if (value < 10) Current_Speed = value; }
-            //}
-
-            public void SlowDown()
+                PresenceOfIgnition = true;
+                Current_Speed = Current_Speed - 10;
+            }
+            public void SlowDown() //Замедлиться 
             {
                 if (Current_Speed >= 10)
                     Current_Speed = Current_Speed - 10;
                 else
                     Current_Speed = 0;
             }
-        //    }
-        //    public void add_luggage() //Добавить багаж в багажное отделение
-          //  {
-                //            CurrentLoad = 
-        //    }
-            /// ///////////////////////////////
-            public int maxspeed  // максимальная скорость
+
+            protected bool Try_Download_Item_To_Luggage(int itemSize)
             {
-                get { return MaxSpeed; }
-                set { if (value > 0) MaxSpeed = value; }
+                if (itemSize > LuggageSpace - CurrentLoad)
+                    return false;
+                CurrentLoad += itemSize;
+                return true;
             }
-            public int Luggagespace
+
+            public string Download_luggage_space(int size)// загрузить багажное отделение
             {
-                get { return luggageSpace; }
-                set { if (value > 0) luggageSpace = CurrentLoad; }
-            }
+                //return ((question) ? true : false)
+                return Try_Download_Item_To_Luggage(size)
+                    ? "погружено"
+                    : "Багажник полон";
+             }
+
+
             //     public void Start()
             //      {
             //          Console.WriteLine("Машина {0} {0} Завести двигатель", Marka);
@@ -138,43 +133,22 @@
             //             Console.WriteLine("Машина {0} {0} Заглушить двигатель", Marka);
             //       }
 
-            //            public void SpeedUP()
-            //         {
-            //              Console.WriteLine("Машина {0} {0} Ускориться", Marka);
-            //           }
+                //            public void SpeedUP()
+                //         {
+                //              Console.WriteLine("Машина {0} {0} Ускориться", Marka);
+                //           }
 
-            //         public void SlowDown()
-            //         {
-            //           Console.WriteLine("Машина {0} {0} Замедлиться", Marka);
+                //         public void SlowDown()
+                //         {
+                //           Console.WriteLine("Машина {0} {0} Замедлиться", Marka);
+            }
         }
     }
-}
-            //    static void Main(string[] args)
-
-            //            Car car = new Car("volvo", "3.2", "0", 200, "1170");
-            //             Console.WriteLine(car.PresenceOfIgnition);
-            //          car.Stop();
-            //         car.SpeedUP();
-            //         car.SlowDown();
-            //         Console.ReadLine();
-            //    }
-            //      }
-            //         Car trucks = new Car("trucks", "3.2");
 
 
 
-// объем двигателя
-//    public int Value
-//      {
-//         get { return Value; }
-//         set { if (value > 0) Value = value; }
-//     }
-// скорость
-//     public int speed
-//       {
-//           get { return speed; }
-//          set { if (value > 0) speed = value; }
-//       }
+
+
 // объем багажного отделения
 //     public int LuggageSpace
 //   {
@@ -182,10 +156,3 @@
 //        set { if (value > 0) LuggageSpace = value; }
 //      }
 //   }
-
-//     class Cars
-//       {
-//       public static void Main()
-//       {
-//          Car A = new Car("Volvo");
-//        A.Start();

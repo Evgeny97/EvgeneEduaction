@@ -17,25 +17,27 @@ namespace ODD_test
         public PassengerCar()
         {
         }
+        public new string Marka = "Vaz";
 
-        public string marka = "Vaz";
-        public new double engineCapacity = 1.6;
-        public new int current_Speed = 70;
-        public int Maxspeed = 220;
-        public new int luggageSpace = 100;
-        public int CurrentLoad;
+        public int current_Speed = 10;
+        public new double engineCapacity = 2.4;
+        public new int Maxspeed = 290;
+        public new int luggageSpace = 150;
+        public int CurrentLoad = 30;
         public new bool PresenceOfIgnition;
-        public int EngineCapacity
+        public new bool Try_Download_Item_To_Luggage;
+        public new string Download_luggage_space;
 
+
+        public new double MaxSpeed
         {
-            get { return EngineCapacity; }
-            set { if (value > 0) EngineCapacity = value; }
+            get { return current_Speed * engineCapacity; }
+            set { MaxSpeed = value; }
         }
-
-
-        //   public new double Speed
-        //      {
-        //         get { return Speed; }
-        //        set { Speed = value + (1.6 * engineCapacity); }
+        public new int Current_Speed
+        {
+            get { return current_Speed; }
+            set { if (value > 0) Maxspeed = value; }
+        }
     }
 }
