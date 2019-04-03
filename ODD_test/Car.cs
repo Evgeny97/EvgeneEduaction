@@ -4,19 +4,19 @@
 
     namespace Car
     {
+        enum Models { Offroad, PassengerCar, Trucks}
         class Car
         {
-            enum Models { Offroad, Truck, PassengerCar }
             /// <summary>
             /// марка автомобиля
             /// </summary>
             public string Marka;
             /// <summary>
-            /// объем двигателя
+            /// Объем двигателя
             /// </summary>
-            private double EngineCapacity;
+            private float EngineCapacity;
             /// <summary>
-            /// текущая скорость
+            /// Текущая скорость
             /// </summary>
             public int Current_Speed;
             /// <summary>
@@ -36,6 +36,31 @@
             /// </summary>
             protected bool PresenceOfIgnition;
 
+            //        public bool NewPresenceOfIgnition
+            //        {
+            //          get
+            //            {
+            //                return Current_Speed > 0;
+            //           }
+            //     }
+            public Models model;
+
+            public void getValues()
+           {
+               Console.WriteLine("car Marka is: " + Marka + ", car EngineCapacity is: " + EngineCapacity + ", car Current_Speed is: " + Current_Speed + ",car MaxSpeed is: " + MaxSpeed + ", car LuggageSpace is: " + luggageSpace + ", car CurrentLoad is: " + CurrentLoad + ", car PresenceOfIgnition is: " + PresenceOfIgnition);
+           }
+
+            public Car(string Marka, float EngineCapacity, int Current_Speed, int MaxSpeed, int LuggageSpace, int CurrentLoad, bool PresenceOfIgnition)
+            {
+                this.Marka = Marka;
+                this.EngineCapacity = EngineCapacity;
+                this.Current_Speed = Current_Speed;
+                this.MaxSpeed = MaxSpeed;
+                this.LuggageSpace = LuggageSpace;
+                this.CurrentLoad = CurrentLoad;
+                this.PresenceOfIgnition = presenceOfIgnition;
+            }
+
             public void SetValues(string Marka, float EngineCapacity, int Current_Speed, int MaxSpeed, int LuggageSpace, int CurrentLoad, bool PresenceOfIgnition)
             {
                 this.Marka = Marka;
@@ -46,42 +71,35 @@
                 this.CurrentLoad = CurrentLoad;
                 this.PresenceOfIgnition = PresenceOfIgnition;
             }
-            public void GetValues()
-            {
-                Console.WriteLine("car Marka is: " + Marka + ", car EngineCapacity is: " + EngineCapacity + ", car Current_Speed is: " + Current_Speed + ",car MaxSpeed is: " + MaxSpeed + ", car LuggageSpace is: " + luggageSpace + ", car CurrentLoad is: " + CurrentLoad + ", car PresenceOfIgnition is: " + PresenceOfIgnition);
-            }
-
-            public Car(string marka, float engineCapacity, int current_speed, int maxspeed, int luggageSpace, int currentLoad, bool PresenceOfIgnition)
-            {
-
-            }
-
+            
             public Car()
             {
+                
+            }
+            
+            /// <summary>
+            /// Обьем двигателя
+            /// </summary>
+            public double engineCapacity { get; set; }
+            /// <summary>
+            /// Текущая скорость
+            /// </summary>
+            public int currentLoad { get; set; }
+            /// <summary>
+            /// объем багажного отделения
+            /// </summary>
+            public int luggageSpace { get; set; }
+            /// <summary>
+            /// Максимальная Скорость
+            /// </summary>
+            public int maxspeed { get; set; }
+            /// <summary>
+            /// Наличие зажигание
+            /// </summary>
+            public bool presenceOfIgnition { get; set; }
 
-            }
 
-            public string Mark
-            {
-                get { return Marka; }
-                set { Marka = value; }
-            }
-            public int engineCapacity // обьем двигателя 
-            {
-                get { return engineCapacity; }
-                set { if (value > 0) engineCapacity = value; }
-            }
-            public int luggageSpace // обьем багажного отделение
-            {
-                get { return luggageSpace; }
-                set { if (value > 0) luggageSpace = value; }
-            }
-            public int Maxspeed  // максимальная скорость
-            {
-                get { return MaxSpeed; }
-                set { if (value > 0) MaxSpeed = value; }
-            }
-
+            //                                                    //
             public void StartEngine()//Запустить двигатель
             {
                 PresenceOfIgnition = true;
@@ -109,7 +127,10 @@
             protected bool Try_Download_Item_To_Luggage(int itemSize)
             {
                 if (itemSize > LuggageSpace - CurrentLoad)
+                {
                     return false;
+                }
+
                 CurrentLoad += itemSize;
                 return true;
             }
@@ -122,6 +143,7 @@
                     : "Багажник полон";
              }
 
+            public bool try_Download_Item_To_Luggage { get; set; }
 
             //     public void Start()
             //      {
@@ -133,15 +155,15 @@
             //             Console.WriteLine("Машина {0} {0} Заглушить двигатель", Marka);
             //       }
 
-                //            public void SpeedUP()
-                //         {
-                //              Console.WriteLine("Машина {0} {0} Ускориться", Marka);
-                //           }
+            //            public void SpeedUP()
+            //         {
+            //              Console.WriteLine("Машина {0} {0} Ускориться", Marka);
+            //           }
 
-                //         public void SlowDown()
-                //         {
-                //           Console.WriteLine("Машина {0} {0} Замедлиться", Marka);
-            }
+            //         public void SlowDown()
+            //         {
+            //           Console.WriteLine("Машина {0} {0} Замедлиться", Marka);
+        }
         }
     }
 

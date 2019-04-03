@@ -9,34 +9,24 @@ namespace ODD_test
 {
     class Offroad : Car
     {
+
         public Offroad(string marka, float engineCapacity, int current_Speed, int maxspeed, int luggageSpace, int currentLoad, bool PresenceOfIgnition) 
             : base(marka, engineCapacity, current_Speed, maxspeed, luggageSpace, currentLoad, PresenceOfIgnition)
         {
         }
 
+
         public Offroad()
         {
         }
-        public string marka = "Jeep";
-        public int current_Speed = 30;
-        public new double engineCapacity = 2.4;
-        public new int Maxspeed = 290;
-        public new int luggageSpace = 150;
-        public int currentLoad = 30;
-        public new bool PresenceOfIgnition;
-        public new bool Try_Download_Item_To_Luggage;
-        public new string Download_luggage_space;
 
-        public new double MaxSpeed
+        public Offroad(object jeep, double v1, int v2, int v3, int v4, int v5, bool v6)
         {
-            get { return current_Speed * engineCapacity; }
-            set { MaxSpeed = value; }
         }
-        public new int Current_Speed
+        public void DoOffroad()
         {
-            get { return current_Speed; }
-            set { if (value > 0) Maxspeed = value; }
+            throw new NotImplementedException();
         }
-
-        }
+        public string doOffroad { get; set; }
     }
+}

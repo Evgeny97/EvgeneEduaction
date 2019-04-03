@@ -46,7 +46,14 @@ namespace OOD_Cars_1_
             volvo.setValues (159.6F,false);
             volvo.getValues ();
             Console.WriteLine();
+
+
+        public void RideToVillage()
+        {
+            throw new NotImplementedException();
         }
+
     }
+}
 }
         
