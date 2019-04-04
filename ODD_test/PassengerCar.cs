@@ -15,19 +15,9 @@ namespace ODD_test
         {
         }
 
-
-        public PassengerCar()
-        {
-        }
-
-        public PassengerCar(object vaz, double v1, int v2, int v3, int v4, int v5, bool v6)
-        {
-        }
-
         public void RideToVillage()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("<<Мам, не полезет твоя рассада, мы уже саженец яблони закинули>>");
         }
-        public string rideToVillage { get; set; }
     }
 }

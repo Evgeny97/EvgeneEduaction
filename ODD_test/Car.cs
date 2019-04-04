@@ -4,37 +4,40 @@
 
     namespace Car
     {
-        enum Models { Offroad, PassengerCar, Trucks}
-        class Car
+        public class Car
         {
+            /// <summary>
+            /// Счетчик автомобилей
+            /// </summary>
+            public static int CarCount { get; private set; }
             /// <summary>
             /// марка автомобиля
             /// </summary>
-            public string Marka;
+            public string Marka { get; private set; }
             /// <summary>
             /// Объем двигателя
             /// </summary>
-            private float EngineCapacity;
+            public float EngineCapacity { get; private set; }
             /// <summary>
             /// Текущая скорость
             /// </summary>
-            public int Current_Speed;
+            public int Current_Speed { get; private set; }
             /// <summary>
             /// максимальная скорость
             /// </summary>
-            protected int MaxSpeed;
+            public int MaxSpeed { get; protected set; }
             /// <summary>
             /// объем багажного отделения
             /// </summary>
-            private int LuggageSpace;
+            public int LuggageSpace { get; private set; }
             /// <summary>
             /// текущая нагрузка
             /// </summary>
-            private int CurrentLoad;
+            public int CurrentLoad { get; protected set; }
             /// <summary>
             /// наличие зажигание 
             /// </summary>
-            protected bool PresenceOfIgnition;
+            public bool PresenceOfIgnition { get; protected set; }
 
             //        public bool NewPresenceOfIgnition
             //        {
@@ -43,26 +46,15 @@
             //                return Current_Speed > 0;
             //           }
             //     }
-            public Models model;
 
-            public void getValues()
-           {
-               Console.WriteLine("car Marka is: " + Marka + ", car EngineCapacity is: " + EngineCapacity + ", car Current_Speed is: " + Current_Speed + ",car MaxSpeed is: " + MaxSpeed + ", car LuggageSpace is: " + luggageSpace + ", car CurrentLoad is: " + CurrentLoad + ", car PresenceOfIgnition is: " + PresenceOfIgnition);
-           }
+//            public void getValues()
+      //     {
+   //            Console.WriteLine("car Marka is: " + Marka + ", car EngineCapacity is: " + EngineCapacity + ", car Current_Speed is: " + Current_Speed + ",car MaxSpeed is: " + MaxSpeed + ", car LuggageSpace is: " + luggageSpace + ", car CurrentLoad is: " + CurrentLoad + ", car PresenceOfIgnition is: " + PresenceOfIgnition);
+  //         }
 
             public Car(string Marka, float EngineCapacity, int Current_Speed, int MaxSpeed, int LuggageSpace, int CurrentLoad, bool PresenceOfIgnition)
             {
-                this.Marka = Marka;
-                this.EngineCapacity = EngineCapacity;
-                this.Current_Speed = Current_Speed;
-                this.MaxSpeed = MaxSpeed;
-                this.LuggageSpace = LuggageSpace;
-                this.CurrentLoad = CurrentLoad;
-                this.PresenceOfIgnition = presenceOfIgnition;
-            }
-
-            public void SetValues(string Marka, float EngineCapacity, int Current_Speed, int MaxSpeed, int LuggageSpace, int CurrentLoad, bool PresenceOfIgnition)
-            {
+                CarCount++;
                 this.Marka = Marka;
                 this.EngineCapacity = EngineCapacity;
                 this.Current_Speed = Current_Speed;
@@ -71,33 +63,6 @@
                 this.CurrentLoad = CurrentLoad;
                 this.PresenceOfIgnition = PresenceOfIgnition;
             }
-            
-            public Car()
-            {
-                
-            }
-            
-            /// <summary>
-            /// Обьем двигателя
-            /// </summary>
-            public double engineCapacity { get; set; }
-            /// <summary>
-            /// Текущая скорость
-            /// </summary>
-            public int currentLoad { get; set; }
-            /// <summary>
-            /// объем багажного отделения
-            /// </summary>
-            public int luggageSpace { get; set; }
-            /// <summary>
-            /// Максимальная Скорость
-            /// </summary>
-            public int maxspeed { get; set; }
-            /// <summary>
-            /// Наличие зажигание
-            /// </summary>
-            public bool presenceOfIgnition { get; set; }
-
 
             //                                                    //
             public void StartEngine()//Запустить двигатель

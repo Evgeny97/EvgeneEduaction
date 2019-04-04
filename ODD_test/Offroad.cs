@@ -15,18 +15,10 @@ namespace ODD_test
         {
         }
 
-
-        public Offroad()
-        {
-        }
-
-        public Offroad(object jeep, double v1, int v2, int v3, int v4, int v5, bool v6)
-        {
-        }
         public void DoOffroad()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Я персона вип - вип, у меня есть джип - джип: ");
         }
-        public string doOffroad { get; set; }
+ //       public string doOffroad { get; set; }
     }
 }
