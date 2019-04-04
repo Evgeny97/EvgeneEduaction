@@ -20,6 +20,11 @@ namespace Avto_park
             string answer = Console.ReadLine();
             if (answer == "1")
             {
+                Console.WriteLine("Добавить автомобиль");
+                PassengerCar pcar = currCar as PassengerCar;
+                Offroad offroad = currCar as Offroad;
+                Trucks trucks = currCar as Trucks;
+                
                 // Создаём автомобиль
             }
             else if (answer == "2")
@@ -44,30 +49,30 @@ namespace Avto_park
 
            Trucks KAMAZ = new Trucks("KAMAZ", (float)4.6, "red", 160, 360, 3750, true);
             engine_сapacity.Add(KAMAZ);
-            for (int i = 0; i < engine_сapacity.Count; ++i)
-            {
-                Car currCar = engine_сapacity[i];
-                if (currCar is PassengerCar)
-                {
-                    Console.WriteLine("Легковое авто");
-                    PassengerCar pcar = currCar as PassengerCar;
-                    pcar.PassengerCar_Lada();
-                }
-                else if (currCar is Offroad)
-                {
-                    Console.WriteLine("Внедорожник");
-                    Offroad offroad = currCar as Offroad;
-                    offroad.Offroad_jeep();
-                }
-                else if (currCar is Trucks)
-                {
-                    Console.WriteLine("Грузовик");
-                    Trucks trucks = currCar as Trucks;
-                    trucks.Tracks_man();
-                }
-                else
-                    Console.WriteLine("Не известный тип автомобля");
-                PrintCar(currCar);
+     //       for (int i = 0; i < engine_сapacity.Count; ++i)
+    //        {
+    //            Car currCar = engine_сapacity[i];
+     //           if (currCar is PassengerCar)
+     //           {
+    //                Console.WriteLine("Легковое авто");
+    //                PassengerCar pcar = currCar as PassengerCar;
+    //                pcar.PassengerCar_Lada();
+   //             }
+       //         else if (currCar is Offroad)
+        //        {
+       //             Console.WriteLine("Внедорожник");
+        //            Offroad offroad = currCar as Offroad;
+       //             offroad.Offroad_jeep();
+       //         }
+       //         else if (currCar is Trucks)
+         //       {
+         //           Console.WriteLine("Грузовик");
+         //           Trucks trucks = currCar as Trucks;
+         //           trucks.Tracks_man();
+         //       }
+         //       else
+             //       Console.WriteLine("Не известный тип автомобля");
+             //   PrintCar(currCar);
             }
 
         }
