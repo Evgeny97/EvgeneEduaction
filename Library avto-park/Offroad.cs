@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Library_avto_park
 {
@@ -10,15 +11,6 @@ namespace Library_avto_park
             {
 
             }
-        public void Offroad_jeep()
-        {
-            Console.WriteLine("tayota");
-            Console.WriteLine("3.5");
-            Console.WriteLine("black");
-            Console.WriteLine("290");
-            Console.WriteLine("250");
-            Console.WriteLine("1800");
-            Console.WriteLine("true");
-        }
+
         }
     }

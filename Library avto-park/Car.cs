@@ -37,7 +37,7 @@
 
         public Car(string Marka, float EngineCapacity, string Colour, int MaxSpeed, int LuggageSpace, int Сar_weight, bool PresenceOfIgnition)
         {
-       //     CarCount++;
+            CarCount++;
             this.Marka = Marka;
             this.EngineCapacity = EngineCapacity;
             this.Colour = Colour;
@@ -46,5 +46,6 @@
             this.Сar_weight = Сar_weight;
             this.PresenceOfIgnition = PresenceOfIgnition;
         }
+  //     string.Format("{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7};", Marka, EngineCapacity, Colour, MaxSpeed, LuggageSpace, Car_weight, PresenceOfIggnition());
     }
 }

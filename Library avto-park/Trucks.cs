@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Library_avto_park
 {
@@ -11,15 +12,6 @@ namespace Library_avto_park
         {
 
         }
-        public void Tracks_man()
-        {
-            Console.WriteLine("Man");
-            Console.WriteLine("5.0");
-            Console.WriteLine("red");
-            Console.WriteLine("290");
-            Console.WriteLine("180");
-            Console.WriteLine("1950");
-            Console.WriteLine("true");
-        }
+
     }
 }
