@@ -15,30 +15,52 @@ namespace Avto_park
                 Console.WriteLine("1 - Добавить новый автомобиль");
                 Console.WriteLine("2 - Проссотреть списк существющих");
                 Console.WriteLine("3 - Марки проданных автомобилей");
-                string answer = Console.ReadLine();
+                foreach (var item in Cars)
+                {
+                    Console.WriteLine(item);
+                }
+                    string answer = Console.ReadLine();
+                {
+                    List<Car> marka; //первый элемент
+                    List<Car> presenceOfIgnition; // последний/
+                    int count;  // количество элементов в списке
+                }
                 if (answer == "1")
                 {
-                    Console.WriteLine("Добавить автомобиль");
                     Console.Write("Введите марку машины ");
                     string Marka = Convert.ToString(Console.ReadLine());
-                    Console.Write("Введите количество лошадиных сил ");
+                    Car marka = null;
+                    Cars.Add(marka);
+                    Console.Write("Введите объем двигателя ");
                     int EngineCapacity = Convert.ToInt16(Console.ReadLine());
+                    Car engineCapacity = null;
+                    Cars.Add(engineCapacity);
+                    Console.WriteLine("Введите цвет автомобиля");
+                    string Colour = Convert.ToString(Console.ReadLine());
+                    Car colour = null;
+                    Cars.Add(colour);
                     Console.Write("Введите год выпуска ");
-                    int year = Convert.ToInt16(Console.ReadLine());
-                    Console.WriteLine("Ваша машина добавлена");
-                    Console.WriteLine("Вернуться назад - 0");
+                    int Year = Convert.ToInt16(Console.ReadLine());
+                    Car year = null;
+                    Cars.Add(year);
+            //        for (node = List.First; node != null; node = node.Next)
+          //              Console.Write(node.Value + "\t");
+                    Console.WriteLine("Для выхода нажмите - Enter");
+                    //     Console.WriteLine("Ваша машина добавлена");
                     // Создаём автомобиль
+
                 }
                 else if (answer == "2")
                 {
                     Console.WriteLine("Данный автомобиль");
-                    Console.WriteLine("Для выхода нажмите - Enter");
-                    //      Console.WriteLine("Offroad - tayota 3.5 white 290 200 1300 true");
-                    //        Console.WriteLine("Passenger Car - vaz 1.6 black 290 200 1300 true");
-                    PassengerCar bmw = new PassengerCar("bmw", (float)1.6, "black", 222,222,222,false);
+                    Console.WriteLine("Offroad - tayota 3.5 white 290 200 1300 true");
+                    Console.WriteLine("");
+                    Offroad tayota = new Offroad("tayota", (float)1.6, "black", 222,222,222,false);
+                    Cars.Add(tayota);
                     PassengerCar vaz = new PassengerCar("vaz", (float)6.0, "black", 290, 200, 1300, true);
                     Cars.Add(vaz);
-         //           Console.WriteLine("Trucks - KAMAZ 4.6 red 160 360 3750 true");
+                    Console.WriteLine("Для выхода нажмите - Enter");
+
                     // выводим все в консоль
                 }
                 else if (answer == "3")
@@ -54,8 +76,8 @@ namespace Avto_park
                     Console.ReadLine();
                     {
 
-                //        PassengerCar vaz = new PassengerCar("vaz", (float)6.0, "black", 290, 200, 1300, true);
-                  //      Cars.Add(vaz);
+                        PassengerCar vaz = new PassengerCar("vaz", (float)6.0, "black", 290, 200, 1300, true);
+                        Cars.Add(vaz);
                   //      PassengerCar marka = new PassengerCar("vaz", (float)6.0, "black", 290, 200, 1300, true);
                    //     Cars.Add(marka);
 
@@ -66,10 +88,6 @@ namespace Avto_park
                         Trucks KAMAZ = new Trucks("KAMAZ", (float)4.6, "red", 160, 360, 3750, true);
                         Cars.Add(KAMAZ);
                         Console.ReadLine();
-
-                        //        Car ap = new Car();
-                        //          public Car(string Marka, float EngineCapacity, string Colour, int MaxSpeed, int LuggageSpace, int Сar_weight, bool PresenceOfIgnition)
-                        //   static void PrintCar(Car car)
                         //     {
                         //        Console.WriteLine("\tМарка автомобиля: {0} ", car.Marka);
                         //        Console.WriteLine("\tОбъем двигателя: {0}", car.EngineCapacity);
