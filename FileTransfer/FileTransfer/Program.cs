@@ -35,6 +35,7 @@ namespace FileTransfer
             Console.WriteLine("Текст из файла: {0}", text);
             string[] separatingChars = { "," };
             string[] numbers = text.Split(separatingChars, StringSplitOptions.RemoveEmptyEntries);
+            Console.ReadKey();
         }
     }
 }

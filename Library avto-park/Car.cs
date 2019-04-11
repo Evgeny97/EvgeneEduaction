@@ -1,6 +1,6 @@
 ﻿namespace Library_avto_park
 {
-    public class Car
+    public class Cars
     {
         /// <summary>
         /// Марка автомобиля
@@ -39,12 +39,13 @@
         /// </summary>
         public int CarCount { get; private set; }
 
-        public Car(string Marka, float EngineCapacity, string Colour, int MaxSpeed, int LuggageSpace, int Сar_weight, bool PresenceOfIgnition)
+        public Cars(string Marka, float EngineCapacity, string Colour, int Year, int MaxSpeed, int LuggageSpace, int Сar_weight, bool PresenceOfIgnition)
         {
             CarCount++;
             this.Marka = Marka;
             this.EngineCapacity = EngineCapacity;
             this.Colour = Colour;
+            this.Year = Year;
             this.MaxSpeed = MaxSpeed;
             this.LuggageSpace = LuggageSpace;
             this.Сar_weight = Сar_weight;
