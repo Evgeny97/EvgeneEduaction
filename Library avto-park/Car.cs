@@ -51,6 +51,5 @@
             this.Сar_weight = Сar_weight;
             this.PresenceOfIgnition = PresenceOfIgnition;
         }
-        //    string.Format("{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}", Marka, EngineCapacity, Colour, MaxSpeed, LuggageSpace, Car_weight, PresenceOfIggnition());
     }
 }

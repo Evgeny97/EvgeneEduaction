@@ -2,12 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 
 namespace Avto_park
 {
     class Program
     {
         static List<Cars> Cars = new List<Cars>();
+
+        public static byte[] array { get; private set; }
+        public static byte[] Array { get; private set; }
+
         static void Main(string[] args)
         {
             Console.WriteLine("\tВыберите, что хотите сделать:");
@@ -16,46 +22,49 @@ namespace Avto_park
             Console.WriteLine("\t3 - Сохранить файл");
             Console.WriteLine("\t4 - Выгрузить данные из файла");
             Console.WriteLine("\t0 - Выйти из программы");
-                while (true)
+            while (true)
+            {
+                string answer = Console.ReadLine();
+                if (answer == "1")
                 {
-                    string answer = Console.ReadLine();
-                    if (answer == "1")
-                    {
-                        AddnewCar();
-                        // Создаём автомобиль
-                    }
-                    else if (answer == "2")
-                    {
-                        PrintAllCars();
-                        // выводим все в консоль
-                    }
-                    else if (answer == "3")
-                    {
-                         SaveFiles();
-                        // сохраням в файл
-                    }
-                    else if (answer == "4")
-                    {
-                        FileReading();
-                        // выгрузить данные из файла
-                    }
-                    else if (answer == "0")
-                    {
-                        break;
-                    }
-                    else
-                        Console.WriteLine("\tНе известная команда");
+                    AddnewCar();
+                    // Создаём автомобиль
                 }
+                else if (answer == "2")
+                {
+                    PrintAllCars();
+                    // выводим все в консоль
+                }
+                else if (answer == "3")
+                {
+                    SaveFiles();
+                    // сохраням в файл
+                }
+                else if (answer == "4")
+                {
+                    FileReading();
+                    // выгрузить данные из файла
+                }
+                else if (answer == "0")
+                {
+                    break;
+                }
+                else
+                    Console.WriteLine("\tНе известная команда");
+            }
         }
-        static void PrintAllCars()
+
+        private static void PrintAllCars()
         {
+            //TODO прописать цикл для отобрадения всего списка автомобией.
             Console.WriteLine("\tДанные автомобиля");
             Console.WriteLine("\tOffroad - tayota 3.5 white 290 200 1300 true");
             Console.WriteLine("\tPassengerCar - vaz 1.6 blue 270 200 980 true");
             Console.WriteLine("\tTrucks - man 5.0 black 200 140 3640 true");
             Console.WriteLine("\tДля выхода нажмите - 0");
         }
-        static void AddnewCar()
+
+        private static void AddnewCar()
         {
             Console.WriteLine("\tВыберите класс автомобиля");
             Console.WriteLine("\tPassengerCar {1}, Offroad {2}, Trucks{3}");
@@ -78,7 +87,7 @@ namespace Avto_park
             switch (classAvto)
             {
                 case 1:
-                    newCar = new PassengerCar(Marka,EngineCapacity,Colour,Year, classAvto,luggageSpace,car_weight,PresenceOfIgnition);
+                    newCar = new PassengerCar(Marka, EngineCapacity, Colour, Year, classAvto, luggageSpace, car_weight, PresenceOfIgnition);
                     break;
                 case 2:
                     newCar = new Offroad(Marka, EngineCapacity, Colour, Year, classAvto, luggageSpace, car_weight, PresenceOfIgnition);
@@ -89,23 +98,36 @@ namespace Avto_park
             }
             Cars.Add(newCar);
         }
-        static void SaveFiles()
+        private static void SaveFiles()
         {
             Console.WriteLine("\tВведите название файла");
             string File_name = Console.ReadLine();
-            using (FileStream fstream = File.OpenRead(@"file1.txt")) ;
-
-        }
-        static void FileReading()
-        {
-            Console.WriteLine("\tВведите название файла");
-            string File_name = Console.ReadLine();
-      //      byte[] array = new byte[100];
-            string text = string.Empty;
-            using (FileStream fstream = File.OpenRead(@"file1.txt")) 
-            Console.WriteLine("\tТекст из файла: {0}", text);
+            array = new byte[50];
+            string TextWriter = string.Empty;//
+            using (FileStream fstream = new FileStream(@"file1.txt", FileMode.OpenOrCreate))
+            fstream.Write(array, 0, array.Length);
+            byte[] Array = Encoding.Default.GetBytes(TextWriter);
             string[] separatingChars = { "," };
-            string[] file1 = text.Split(separatingChars, StringSplitOptions.RemoveEmptyEntries);
+            string[] numbers = TextWriter.Split(separatingChars, StringSplitOptions.RemoveEmptyEntries);
+            Console.WriteLine("\tТекст из файла: {0}", TextWriter);
+            Console.WriteLine("\tТекст записан в файл");
+        }
+        private static void FileReading()
+        {
+            Console.WriteLine("\tВведите название файла");
+            string File_name = Console.ReadLine();
+            Array = new byte[50];
+            int ReadCount = 1;
+            string text = string.Empty; // = ""  
+            using (FileStream fstream = File.OpenRead(@"file1.txt"))
+
+                while (ReadCount != 0)
+                {
+
+                    ReadCount = fstream.Read(Array, 0, Array.Length);
+                    text += Encoding.Default.GetString(Array);
+                }
+            Console.WriteLine("\tТекст из файла: {0}", text);
         }
     }
 }
