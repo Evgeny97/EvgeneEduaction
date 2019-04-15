@@ -4,15 +4,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace Avto_park
 {
+    [Serializable]
     class Program
     {
         static List<Cars> Cars = new List<Cars>();
-
-        public static byte[] array { get; private set; }
-        public static byte[] Array { get; private set; }
 
         static void Main(string[] args)
         {
@@ -42,7 +41,7 @@ namespace Avto_park
                 }
                 else if (answer == "4")
                 {
-                    FileReading();
+                    //FileReading();
                     // выгрузить данные из файла
                 }
                 else if (answer == "0")
@@ -56,7 +55,6 @@ namespace Avto_park
 
         private static void PrintAllCars()
         {
-            //TODO прописать цикл для отобрадения всего списка автомобией.
             Console.WriteLine("\tДанные автомобиля");
             Console.WriteLine("\tOffroad - tayota 3.5 white 290 200 1300 true");
             Console.WriteLine("\tPassengerCar - vaz 1.6 blue 270 200 980 true");
@@ -98,36 +96,31 @@ namespace Avto_park
             }
             Cars.Add(newCar);
         }
+        //  Serialize();
+        //  Deserialize();
         private static void SaveFiles()
         {
-            Console.WriteLine("\tВведите название файла");
-            string File_name = Console.ReadLine();
-            array = new byte[50];
-            string TextWriter = string.Empty;//
-            using (FileStream fstream = new FileStream(@"file1.txt", FileMode.OpenOrCreate))
-            fstream.Write(array, 0, array.Length);
-            byte[] Array = Encoding.Default.GetBytes(TextWriter);
-            string[] separatingChars = { "," };
-            string[] numbers = TextWriter.Split(separatingChars, StringSplitOptions.RemoveEmptyEntries);
-            Console.WriteLine("\tТекст из файла: {0}", TextWriter);
-            Console.WriteLine("\tТекст записан в файл");
-        }
-        private static void FileReading()
-        {
-            Console.WriteLine("\tВведите название файла");
-            string File_name = Console.ReadLine();
-            Array = new byte[50];
-            int ReadCount = 1;
-            string text = string.Empty; // = ""  
-            using (FileStream fstream = File.OpenRead(@"file1.txt"))
+            //сериализация
+            List<string> Cars = new List<string>();
+            Cars.Add("classAvto");
+            Cars.Add("newCar");
+            FileStream fs = new FileStream("file1.txt", FileMode.Create, FileAccess.Write, FileShare.ReadWrite); //запись файла
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(fs, Cars);            //сериализация
+            fs.Close();
+            static void Deserialize()
+            {
+                List<string> Cars;
+                FileStream fs = new FileStream("file1.txt", FileMode.Open, FileAccess.Read, FileShare.Read);
+                BinaryFormatter bf = new BinaryFormatter();
+                Cars = (List<string>)bf.Deserialize(fs);
+                fs.Close();
 
-                while (ReadCount != 0)
+                foreach (string w in Cars)
                 {
-
-                    ReadCount = fstream.Read(Array, 0, Array.Length);
-                    text += Encoding.Default.GetString(Array);
+                    Console.WriteLine(w);
                 }
-            Console.WriteLine("\tТекст из файла: {0}", text);
+            }
         }
     }
 }

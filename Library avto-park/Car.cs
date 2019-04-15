@@ -5,39 +5,39 @@
         /// <summary>
         /// Марка автомобиля
         /// </summary>
-        public string Marka { get; private set; }
+        public string Marka { get; set; }
         /// <summary>
         /// Объем двигателя
         /// </summary>
-        public float EngineCapacity { get; private set; }
+        public float EngineCapacity { get; set; }
         /// <summary>
         /// Цвет автомобиля
         /// </summary>
-        public string Colour { get; private set; }
+        public string Colour { get; set; }
         /// <summary>
         /// Год автомобиля
         /// </summary>
-        public int Year { get;private set; }
+        public int Year { get;set; }
         /// <summary>
         /// Максимальная скорость
         /// </summary>
-        public int MaxSpeed { get; protected set; }
+        public int MaxSpeed { get;set; }
         /// <summary>
         /// Объем багажного отделения
         /// </summary>
-        public int LuggageSpace { get; private set; }
+        public int LuggageSpace { get; set; }
         /// <summary>
         /// Вес автомобиля
         /// </summary>
-        public int Сar_weight { get; protected set; }
+        public int Сar_weight { get; set; }
         /// <summary>
         /// Наличие зажигание 
         /// </summary>
-        public bool PresenceOfIgnition { get; protected set; }
+        public bool PresenceOfIgnition { get; set; }
         /// <summary>
         /// Счетчик автомобиля
         /// </summary>
-        public int CarCount { get; private set; }
+        public int CarCount { get;  set; }
 
         public Cars(string Marka, float EngineCapacity, string Colour, int Year, int MaxSpeed, int LuggageSpace, int Сar_weight, bool PresenceOfIgnition)
         {

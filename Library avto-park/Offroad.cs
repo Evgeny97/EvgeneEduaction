@@ -10,6 +10,5 @@ namespace Library_avto_park
                 : base(marka, engineCapacity, colour, year, classAvto, luggageSpace, car_weight, PresenceOfIgnition)
             {
             }
-
         }
     }
