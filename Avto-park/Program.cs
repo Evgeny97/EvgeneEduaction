@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Xml.Serialization;
 
@@ -12,6 +11,15 @@ namespace Avto_park
     class Program
     {
         static List<Cars> Cars = new List<Cars>();
+        private static byte[] array;
+
+        public static string Marka { get; set; }
+        public static int EngineCapacity { get; set; }
+        public static string Colour { get; set; }
+        public static int Year { get; set; }
+        public static int car_weight { get; set; }
+        public static int luggageSpace { get; set; }
+        public static bool PresenceOfIgnition { get; set; }
 
         static void Main(string[] args)
         {
@@ -41,7 +49,7 @@ namespace Avto_park
                 }
                 else if (answer == "4")
                 {
-                    //FileReading();
+                    ReadFiles();
                     // выгрузить данные из файла
                 }
                 else if (answer == "0")
@@ -96,30 +104,42 @@ namespace Avto_park
             }
             Cars.Add(newCar);
         }
-        //  Serialize();
-        //  Deserialize();
         private static void SaveFiles()
         {
-            //сериализация
-            List<string> Cars = new List<string>();
-            Cars.Add("classAvto");
-            Cars.Add("newCar");
-            FileStream fs = new FileStream("file1.txt", FileMode.Create, FileAccess.Write, FileShare.ReadWrite); //запись файла
-            BinaryFormatter bf = new BinaryFormatter();
-            bf.Serialize(fs, Cars);            //сериализация
-            fs.Close();
-            static void Deserialize()
+            array = new byte[100];
+            string text = string.Empty; // = ""  
+          //  using (FileStream fstream = new FileStream(@"file1.txt", FileMode.OpenOrCreate))
+            using (StreamWriter fstream = new StreamWriter(@"file1.txt", true, Encoding.Default))
             {
-                List<string> Cars;
-                FileStream fs = new FileStream("file1.txt", FileMode.Open, FileAccess.Read, FileShare.Read);
-                BinaryFormatter bf = new BinaryFormatter();
-                Cars = (List<string>)bf.Deserialize(fs);
-                fs.Close();
-
-                foreach (string w in Cars)
                 {
-                    Console.WriteLine(w);
+                    text += Encoding.Default.GetString(array);
                 }
+                StreamWriter writer = new StreamWriter("file11.txt");
+                XmlSerializer serializer = new XmlSerializer(typeof(Cars));
+                serializer.Serialize(writer, Cars);
+                writer.Close();
+            }
+        }
+        private static void ReadFiles()
+        {
+            array = new byte[100];
+            int ReadCount = 1;
+            string text = string.Empty; // = ""  
+            using (FileStream fstream = File.OpenRead(@"file1.txt"))
+            {
+                while (ReadCount != 0)
+                {
+                    ReadCount = fstream.Read(array, 0, array.Length);
+                    text += Encoding.Default.GetString(array);
+                }
+                
+                string[] PassengerCar = new string[] { "Марка  " + "Объем двигателя  " + "Цвет  " + "Год выпуска  " + "Объем багажного отделение  " + "Вес автомобиля  " + "Наличие зажигание  " };
+                string[] Offroad = new string[] { "Марка  " + "Объем двигателя  " + "Цвет  " + "Год выпуска  " + "Объем багажного отделение  " + "Вес автомобиля  " + "Наличие зажигание  " };
+                Console.WriteLine ( "Марка  " + "Объем двигателя  " + "Цвет  " + "Год выпуска  " + "Объем багажного отделение  " + "Вес автомобиля  " + "Наличие зажигание  " );
+                Console.WriteLine ( Marka + "    " + EngineCapacity + "    " + Colour + "    " + Year + "    " + luggageSpace + "    " + car_weight + "    " + PresenceOfIgnition );
+                string[] separatingChars = { "+" };
+                string[] car = text.Split(separatingChars, StringSplitOptions.RemoveEmptyEntries);
+                Console.WriteLine(text);
             }
         }
     }

@@ -1,4 +1,6 @@
-﻿namespace Library_avto_park
+﻿using System;
+
+namespace Library_avto_park
 {
     public class Cars
     {
@@ -17,7 +19,7 @@
         /// <summary>
         /// Год автомобиля
         /// </summary>
-        public int Year { get;set; }
+        public int Year { get;private set; }
         /// <summary>
         /// Максимальная скорость
         /// </summary>
@@ -25,19 +27,19 @@
         /// <summary>
         /// Объем багажного отделения
         /// </summary>
-        public int LuggageSpace { get; set; }
+        public int LuggageSpace { get; private set; }
         /// <summary>
         /// Вес автомобиля
         /// </summary>
-        public int Сar_weight { get; set; }
+        public int Сar_weight { get; private set; }
         /// <summary>
         /// Наличие зажигание 
         /// </summary>
-        public bool PresenceOfIgnition { get; set; }
+        public bool PresenceOfIgnition { get; private set; }
         /// <summary>
         /// Счетчик автомобиля
         /// </summary>
-        public int CarCount { get;  set; }
+        public int CarCount { get; private set; }
 
         public Cars(string Marka, float EngineCapacity, string Colour, int Year, int MaxSpeed, int LuggageSpace, int Сar_weight, bool PresenceOfIgnition)
         {
