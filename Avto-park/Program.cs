@@ -7,7 +7,6 @@ using System.Xml.Serialization;
 
 namespace Avto_park
 {
-    [Serializable]
     class Program
     {
         static List<Cars> Cars = new List<Cars>();
@@ -114,10 +113,6 @@ namespace Avto_park
                 {
                     text += Encoding.Default.GetString(array);
                 }
-                StreamWriter writer = new StreamWriter("file11.txt");
-                XmlSerializer serializer = new XmlSerializer(typeof(Cars));
-                serializer.Serialize(writer, Cars);
-                writer.Close();
             }
         }
         private static void ReadFiles()
@@ -137,7 +132,7 @@ namespace Avto_park
                 string[] Offroad = new string[] { "Марка  " + "Объем двигателя  " + "Цвет  " + "Год выпуска  " + "Объем багажного отделение  " + "Вес автомобиля  " + "Наличие зажигание  " };
                 Console.WriteLine ( "Марка  " + "Объем двигателя  " + "Цвет  " + "Год выпуска  " + "Объем багажного отделение  " + "Вес автомобиля  " + "Наличие зажигание  " );
                 Console.WriteLine ( Marka + "    " + EngineCapacity + "    " + Colour + "    " + Year + "    " + luggageSpace + "    " + car_weight + "    " + PresenceOfIgnition );
-                string[] separatingChars = { "+" };
+                string[] separatingChars = { "+", "," };
                 string[] car = text.Split(separatingChars, StringSplitOptions.RemoveEmptyEntries);
                 Console.WriteLine(text);
             }

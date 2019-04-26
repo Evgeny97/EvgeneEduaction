@@ -53,5 +53,9 @@ namespace Library_avto_park
             this.Сar_weight = Сar_weight;
             this.PresenceOfIgnition = PresenceOfIgnition;
         }
+
+        public Cars()
+        {
+        }
     }
 }
