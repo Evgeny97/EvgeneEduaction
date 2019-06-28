@@ -29,13 +29,13 @@ namespace Car
             avto.Vypusk = Console.ReadLine(); //считывает год выпуска авто
 
             //Запись в файл
-            StreamWriter writer = new StreamWriter("text.txt");
+            StreamWriter writer = new StreamWriter(@"text.txt");
             XmlSerializer serializer = new XmlSerializer(typeof(Car));
             serializer.Serialize(writer, avto);
             writer.Close();
 
             //Чтение из файла
-            Stream streamout = new FileStream("d:\\text.txt", FileMode.Open, FileAccess.Read);
+            Stream streamout = new FileStream(@"text.txt", FileMode.Open, FileAccess.Read);
             XmlSerializer xml = new XmlSerializer(typeof(Car));
             avto = (Car)xml.Deserialize(streamout);
             streamout.Close();

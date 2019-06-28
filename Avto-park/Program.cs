@@ -7,9 +7,10 @@ using System.Xml.Serialization;
 
 namespace Avto_park
 {
+    [Serializable]
     class Program
     {
-        static List<Cars> Cars = new List<Cars>();
+        static List<Car> Car = new List<Car>();
         private static byte[] array;
 
         public static string Marka { get; set; }
@@ -74,7 +75,7 @@ namespace Avto_park
             Console.WriteLine("\tВыберите класс автомобиля");
             Console.WriteLine("\tPassengerCar {1}, Offroad {2}, Trucks{3}");
             int classAvto = Convert.ToUInt16(Console.ReadLine());
-            Cars newCar = null;
+            Car newCar = null;
             Console.Write("\tВведите марку машины ");
             string Marka = Convert.ToString(Console.ReadLine());
             Console.Write("\tВведите объем двигателя ");
@@ -101,7 +102,7 @@ namespace Avto_park
                     newCar = new Trucks(Marka, EngineCapacity, Colour, Year, classAvto, luggageSpace, car_weight, PresenceOfIgnition);
                     break;
             }
-            Cars.Add(newCar);
+            Car.Add(newCar);
         }
         private static void SaveFiles()
         {
@@ -127,14 +128,29 @@ namespace Avto_park
                     ReadCount = fstream.Read(array, 0, array.Length);
                     text += Encoding.Default.GetString(array);
                 }
-                
-                string[] PassengerCar = new string[] { "Марка  " + "Объем двигателя  " + "Цвет  " + "Год выпуска  " + "Объем багажного отделение  " + "Вес автомобиля  " + "Наличие зажигание  " };
-                string[] Offroad = new string[] { "Марка  " + "Объем двигателя  " + "Цвет  " + "Год выпуска  " + "Объем багажного отделение  " + "Вес автомобиля  " + "Наличие зажигание  " };
-                Console.WriteLine ( "Марка  " + "Объем двигателя  " + "Цвет  " + "Год выпуска  " + "Объем багажного отделение  " + "Вес автомобиля  " + "Наличие зажигание  " );
-                Console.WriteLine ( Marka + "    " + EngineCapacity + "    " + Colour + "    " + Year + "    " + luggageSpace + "    " + car_weight + "    " + PresenceOfIgnition );
-                string[] separatingChars = { "+", "," };
-                string[] car = text.Split(separatingChars, StringSplitOptions.RemoveEmptyEntries);
-                Console.WriteLine(text);
+
+               // StreamWriter writer = new StreamWriter(@"text1.txt");
+            //    XmlSerializer serializer = new XmlSerializer(typeof(Car));
+             //   serializer.Serialize(writer, Car);
+             //   writer.Close();
+
+                //Чтение из файла
+            //    Stream streamout = new FileStream(@"text1.txt", FileMode.Open, FileAccess.Read);
+             //   XmlSerializer xml = new XmlSerializer(typeof(Car));
+             //   Car Cars = (Car)xml.Deserialize(streamout);
+             //   streamout.Close();
+
+
+              //  Console.WriteLine("Марка  " + "Объем двигателя  " + "Цвет  " + "Год выпуска  " + "Объем багажного отделение  " + "Вес автомобиля  " + "Наличие зажигание  ");
+             //   Console.WriteLine ( Marka + "    " + EngineCapacity + "    " + Colour + "    " + Year + "    " + luggageSpace + "    " + car_weight + "    " + PresenceOfIgnition );
+             //   Console.ReadLine();
+                  string[] PassengerCar = new string[] { "Марка  " + "Объем двигателя  " + "Цвет  " + "Год выпуска  " + "Объем багажного отделение  " + "Вес автомобиля  " + "Наличие зажигание  " };
+                 string[] Offroad = new string[] { "Марка  " + "Объем двигателя  " + "Цвет  " + "Год выпуска  " + "Объем багажного отделение  " + "Вес автомобиля  " + "Наличие зажигание  " };
+                  Console.WriteLine ( "Марка  " + "Объем двигателя  " + "Цвет  " + "Год выпуска  " + "Объем багажного отделение  " + "Вес автомобиля  " + "Наличие зажигание  " );
+                  Console.WriteLine ( Marka + "    " + EngineCapacity + "    " + Colour + "    " + Year + "    " + luggageSpace + "    " + car_weight + "    " + PresenceOfIgnition );
+                   string[] separatingChars = { "+", "," };
+                  string[] car = text.Split(separatingChars, StringSplitOptions.RemoveEmptyEntries);
+                  Console.WriteLine(text);
             }
         }
     }

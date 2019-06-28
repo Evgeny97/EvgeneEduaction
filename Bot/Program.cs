@@ -31,7 +31,6 @@ namespace TelegramBot
             Console.ReadLine();
             Bot.StopReceiving();
         }
-
         private static async void BotOnCallbackQueryReceived(object sender, CallbackQueryEventArgs e)
         {
             string buttonText = e.CallbackQuery.Data;
@@ -80,8 +79,8 @@ namespace TelegramBot
                     {
                         new[]
                         {
-                            new KeyboardButton("Привет"),
-                            new KeyboardButton("Как дела?")
+                            new KeyboardButton("Ваши данные"),
+                            new KeyboardButton("Информация")
                         },
                         new[]
                         {
@@ -96,7 +95,7 @@ namespace TelegramBot
                     var response = apiAi.TextRequest(message.Text);
                     string answer = response.Result.Fulfillment.Speech;
                     if (answer == "")
-                        answer = "Я хочу чтобы мне сделали)";
+                        answer = "Неизвестная операция";
                     await Bot.SendTextMessageAsync(message.From.Id, answer);
                     break;
             }
