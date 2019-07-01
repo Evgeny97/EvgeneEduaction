@@ -16,7 +16,7 @@ namespace DataAccessLayer.Model
         public DateTime dob { get; set; }
         public int id { get; set; }
 
-
+        
         public ICollection<sales> sale { get; set; }
         public clients()
         {

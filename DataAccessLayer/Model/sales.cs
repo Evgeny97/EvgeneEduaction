@@ -13,12 +13,15 @@ namespace DataAccessLayer.Model
     {
         [Key]
         public int car { get; set; }
-        public string clientI { get; set; }
         public DateTime buy_date { get; set; }
 
-        public Cars CarAvto { get; set; }
+        public int? ClientsId { get; set; }
+        public clients Clients { get; set; }
+        /*
+        public Cars cars { get; set; }
 
-        public clients clients { get; set; }
+        public clients ClientId { get; set; }
+        */
     }
 
 }
